@@ -10,7 +10,7 @@ members = ["gomoku_core"]
 
 
 [dependencies]
-# bevy = { version = "0.12.1", features = ["dynamic_linking"] }
+tauri = "1.6.0"
 gomoku_core = { path = "./gomoku_core" }
 # minimax = "0.5.3"
 rand = "0.8.5"
