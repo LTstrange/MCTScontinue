@@ -6,13 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [workspace]
-members = ["gomoku_core"]
+members = ["gomoku_core", "src-tauri"]
 
 
 [dependencies]
-tauri = "1.6.0"
 gomoku_core = { path = "./gomoku_core" }
-# minimax = "0.5.3"
 rand = "0.8.5"
 
 

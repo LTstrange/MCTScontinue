@@ -1,9 +1,7 @@
 use std::io::Write;
 
 use gomoku_core::{
-    gomoku::{Gomoku, Move, State},
-    interface::Game,
-    mcts::algorithm::{MCTSOptions, MonteCarloTreeSearchContinue},
+    interface::Game, Gomoku, MCTSOptions, MonteCarloTreeSearchContinue, Move, State,
 };
 
 fn human_play(game_state: &mut State) -> Move {

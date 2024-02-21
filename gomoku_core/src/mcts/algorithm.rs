@@ -84,7 +84,7 @@ impl MonteCarloTreeSearchContinue {
             pre_choose_move_time: Instant::now(),
         }
     }
-    pub fn choose_move(&mut self, state: &State) -> Option<Move> {
+    pub fn choose_move(&self, state: &State) -> Option<Move> {
         self.change_cur_state(state);
         if self.cur_state.read().unwrap().pieces.is_empty() {
             return Some(Move::new(7, 7));
@@ -113,10 +113,10 @@ impl MonteCarloTreeSearchContinue {
                 .iter()
                 .map(|node| (node.visits.load(Relaxed), node.score.load(Relaxed), node.m))
                 .collect::<Vec<_>>();
-            children.sort_by_key(|t| !t.0);
+            children.sort_by_key(|t| !t.1);
 
             // Dump stats about the top 10 nodes.
-            for (visits, score, m) in children.into_iter().take(10) {
+            for (visits, score, m) in children.into_iter().take(5) {
                 // Normalized so all wins is 100%, all draws is 50%, and all losses is 0%.
                 let win_rate = (score as f64 + visits as f64) / (visits as f64 * 2.0);
                 println!(
@@ -128,13 +128,13 @@ impl MonteCarloTreeSearchContinue {
             }
         }
 
-        // get most visited node
+        // get most winner node
         let node = cur_node
             .expansion
             .get()?
             .children
             .iter()
-            .max_by_key(|n| n.visits.load(Relaxed))?;
+            .max_by_key(|n| n.score.load(Relaxed))?;
         println!("final visits: {}", node.visits.load(Relaxed));
         node.m
     }

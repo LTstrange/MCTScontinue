@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #434343;
+    overflow: hidden;
+}
+
+#left {
+    height: 100vh;
+    width: min(100vh, 100vw);
+    position: relative;
+}
+
+#right {
+    flex-grow: 1;
+    width: 0;
+    margin: 1%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2%;
+}
+
+#stones-border {
+    position: absolute;
+    width: min(97vh, 97vw);
+    height: min(97vh, 97vw);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+#stones {
+    z-index: 1;
+    flex-grow: 1;
+    margin: 3.125%;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+}
+
+.stone {
+    width: 100%;
+    height: 100%;
+}
+
+#game-board {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#last-stone {
+    z-index: 10;
+    margin: 5% 5% 50% 50%;
+}
+
+button {
+    width: 100%;
+    font: 2em sans-serif;
+}

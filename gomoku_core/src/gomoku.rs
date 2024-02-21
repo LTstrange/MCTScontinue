@@ -160,7 +160,7 @@ pub enum Stone {
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-pub struct Move(u8);
+pub struct Move(pub u8);
 //   0   1   2  ...  12  13  14
 //  15  16  17  ...  27  28  29
 // ...

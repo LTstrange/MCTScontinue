@@ -2,8 +2,8 @@ use std::collections::BinaryHeap;
 
 use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion};
 use gomoku_core::{
-    gomoku::{Gomoku, Move, State},
     interface::Game,
+    {Gomoku, Move, State},
 };
 
 use rand::{rngs::ThreadRng, seq::SliceRandom, thread_rng, Rng};
