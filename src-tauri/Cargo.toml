@@ -20,7 +20,11 @@ serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.6.0", features = [] }
 gomoku_core = { path = "../gomoku_core" }
 
+
 [profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
 opt-level = 3
 
 [features]
